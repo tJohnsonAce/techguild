@@ -18,12 +18,14 @@ const Sidebar = () => {
     {
       label: 'Notifications',
       href: '/notifications',
-      icon: BsBellFill
+      icon: BsBellFill,
+      auth: true
     },
     {
       label: 'Profile',
       href: '/users/123',
-      icon: BsPersonFill
+      icon: BsPersonFill,
+      auth: true
     },
   ]
 
@@ -38,6 +40,7 @@ const Sidebar = () => {
               href={icon.href}
               label={icon.label}
               icon={icon.icon}
+              auth={icon.auth}
             />
           ))}
           {currentUser && (<SidebarItem onClick={() => signOut()} icon={BiLogOut} label='Logout'/>
