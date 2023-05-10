@@ -28,7 +28,7 @@ const Avatar: React.FC<AvatarProps> = ({
 
   return (
     <div className={`
-      ${hasBorder ? 'border-2 border-cyan-500' : ''}
+      ${hasBorder ? 'border-2 border-cyan-950' : ''}
       ${isLarge ? 'w-32 h-32' : 'w-12 h-12'}
       rounded-full cursor-pointer hover:opacity-80 transition relative
     `}>
@@ -39,7 +39,7 @@ const Avatar: React.FC<AvatarProps> = ({
           borderRadius: '100%'
         }}
         alt='Avatar'
-        src={fetchedUser?.profileImage || '/images/placeholder.png'}
+        src={fetchedUser?.profileImage || '/images/anonimage.png'}
         onClick={onClick}
         />
     </div>
