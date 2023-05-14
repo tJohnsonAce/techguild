@@ -3,7 +3,6 @@ import { BiLogOut } from 'react-icons/bi'
 import SidebarLogo from './SidebarLogo'
 import SidebarItem from './SidebarItem'
 import SidebarPostButton from './SidebarPostButton'
-import { use } from 'react'
 import useCurrentUser from '@/hooks/useCurrentUser'
 import { signOut } from 'next-auth/react'
 
@@ -23,7 +22,7 @@ const Sidebar = () => {
     },
     {
       label: 'Profile',
-      href: '/users/123',
+      href: `/users/${currentUser?.id}`,
       icon: BsPersonFill,
       auth: true
     },
