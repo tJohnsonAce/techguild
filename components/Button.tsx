@@ -8,6 +8,7 @@ interface ButtonProps {
   onClick: () => void
   disabled?: boolean
   outline?: boolean
+  className?: string
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -17,7 +18,8 @@ const Button: React.FC<ButtonProps> = ({
   large,
   onClick,
   disabled,
-  outline
+  outline,
+  className
 }) => {
 
   return (
@@ -33,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
         transition
         border-2
         ${fullWidth ? 'w-full' : 'w-fit'}
-        ${secondary ? 'bg-gray-300 text-black' : 'bg-primary-500 text-white'}
+        ${secondary ? 'bg-gray-300 text-black border-slate-300' : 'bg-primary-500 text-white'}
         ${secondary ? 'text-black' : 'text-white'}
         ${secondary ? 'border-black' : 'border-cyan-950'}
         ${large ? 'text-xl' : 'text-md'}
@@ -42,6 +44,7 @@ const Button: React.FC<ButtonProps> = ({
         ${outline ? 'bg-transparent' : ''}
         ${outline ? 'text-white' : ''}
         ${outline ? 'border-white' : ''}
+        ${className}
     `}>
       {label}
     </button>
