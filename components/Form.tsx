@@ -8,6 +8,7 @@ import axios from "axios"
 import { set } from "date-fns"
 import Button from "./Button"
 import Avatar from "./Avatar"
+import usePost from "@/hooks/usePost"
 
 interface FormProps {
   placeholder: string
@@ -20,6 +21,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
   const loginModal = useLoginModal()
   const { data: currentUser } = useCurrentUser()
   const { mutate: mutatePosts } = usePosts()
+  const {mutate: mutatePost} = usePost(postId as string)
 
   const [body, setBody] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -27,10 +29,13 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
     try {
       setIsLoading(true)
 
-        await axios.post('api/posts', { body })
+      const url = isComment ? `/api/comments?postId=${postId}` : 'api/posts'
+
+        await axios.post(url, { body })
         toast.success('Post created!')
         setBody('')
         mutatePosts()
+        mutatePost()
 
     } catch (error) {
       toast.error('An unexpected error occurred.')
@@ -39,7 +44,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
       setIsLoading(false)
     }
 
-  }, [body, mutatePosts])
+  }, [body, mutatePosts, postId, isComment, mutatePost])
   return (
     <div className="border-b-[1px] border-slate-800 py-2">
       {currentUser ? (

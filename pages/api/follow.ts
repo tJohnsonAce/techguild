@@ -8,9 +8,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    let { userId } = req.body; // First, try to get userId from the body
+    let { userId } = req.body;
 
-    if (!userId) { // If userId is not present in the body, try to get it from the query
+    if (!userId) {
       userId = req.query.userId;
     }
 
@@ -38,6 +38,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     }
 
+    try {
+      await prisma.notification.create({
+        data: {
+          body: `${currentUser.username} followed you`,
+          userId: userId
+        }
+      });
+
+      await prisma.user.update({
+        where: {
+          id: userId
+        },
+        data: {
+          hasNotification: true
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+
     if (req.method === 'DELETE') {
       updatedFollowingIds = updatedFollowingIds.filter((followingId) => followingId !== userId);
     }
@@ -52,6 +72,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     return res.status(200).json(updatedUser);
+
   } catch (error) {
     console.log(error);
     return res.status(400).end();
