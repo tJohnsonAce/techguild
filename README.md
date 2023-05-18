@@ -1,38 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+TechGuild
+Welcome to TechGuild! This is a social networking site crafted with passion and tailored to all things tech. Be it developers, software engineers, or tech enthusiasts - if tech is your passion, you're in the right place! The project is developed using the powerful combination of TypeScript, Next.js, Tailwind CSS, Prisma and MongoDB.
 
-## Getting Started
+Description
+TechGuild is a platform that lets you connect with like-minded individuals, share ideas, discuss trends, and grow together in your tech journey. Inspired by the tech community on Twitter, it aims to provide a dedicated space for tech-related interactions.
 
-First, run the development server:
+Getting Started
+Here's how to set up the project locally.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Prerequisites
+Ensure you have Node.js, npm, and MongoDB installed on your machine.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Installation
+Clone the repo: https://github.com/tJohnsonAce/techguild.git
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Install NPM packages: npm install
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+This installs the required packages, including TypeScript, Next.js, Tailwind CSS, Prisma, and the MongoDB driver.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Setting Up the Database
+Make sure MongoDB is running locally. Update the database URL in prisma/.env file. Then, run the following command to generate Prisma client:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+npx prisma generate
 
-## Learn More
+Running Locally
+To run the project, use the following command:  npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+Then, open http://localhost:3000 in your browser to see the result
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Usage
+Join TechGuild to connect with tech enthusiasts, discuss latest trends, share your thoughts, and explore exciting content.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contact
+For any questions or suggestions, feel free to reach out to us:
 
-## Deploy on Vercel
+Email: tjohnsonace@outlook.com
+LinkedIn: https://www.linkedin.com/in/trevor-johnson-dev/
+Twitter: https://twitter.com/whizzkee
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for checking out TechGuild! We can't wait to see you in the community.
